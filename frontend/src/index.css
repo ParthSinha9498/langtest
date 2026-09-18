@@ -1,0 +1,186 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #8884;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.app-error {
+  color: #d33;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  padding: 0.75rem;
+  border-right: 1px solid #8884;
+}
+
+.sidebar h2 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin: 0 0 0.5rem;
+}
+
+.main-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.graph-panel {
+  flex: 1.2;
+  min-height: 0;
+  border-bottom: 1px solid #8884;
+  overflow: hidden;
+}
+
+.detail-panel {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.timeline-panel,
+.fork-panel {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 0.75rem;
+}
+
+.timeline-panel {
+  border-right: 1px solid #8884;
+}
+
+.timeline-panel h2,
+.fork-panel h2 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin: 0 0 0.5rem;
+}
+
+.empty-state {
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+.thread-list,
+.history-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.thread-list button,
+.history-timeline button {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #8884;
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.thread-list button.selected,
+.history-timeline button.selected {
+  border-color: #5b8def;
+  background: #5b8def22;
+}
+
+.thread-id {
+  font-family: monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thread-meta,
+.pending {
+  opacity: 0.65;
+  font-size: 0.75rem;
+}
+
+.step {
+  font-weight: 600;
+}
+
+.produced-by {
+  font-family: monospace;
+}
+
+.pending {
+  color: #c98a12;
+}
+
+.graph-transform-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.graph-svg svg {
+  max-width: none;
+}
+
+.graph-svg .node.lt-visited > * {
+  fill: #4caf5033 !important;
+  stroke: #4caf50 !important;
+}
+
+.graph-svg .node.lt-pending > * {
+  fill: #ff980033 !important;
+  stroke: #ff9800 !important;
+  stroke-width: 2px !important;
+}
+
+.fork-editor textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+.fork-error {
+  color: #d33;
+}

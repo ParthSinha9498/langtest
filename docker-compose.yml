@@ -1,0 +1,37 @@
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - "8010:8010"
+    environment:
+      LANGTEST_DB_PATH: /data/checkpoints.db
+      LANGTEST_PORT: "8010"
+    volumes:
+      - langtest-data:/data
+
+  # One-off: seeds /data/checkpoints.db, then exits. Run with:
+  #   docker compose run --rm chat-agent
+  chat-agent:
+    build:
+      context: .
+    command: ["python", "-m", "chat_agent.seed", "--db-path", "/data/checkpoints.db"]
+    environment:
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+    volumes:
+      - langtest-data:/data
+    depends_on:
+      - server
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: http://localhost:8010
+    ports:
+      - "5173:80"
+    depends_on:
+      - server
+
+volumes:
+  langtest-data:

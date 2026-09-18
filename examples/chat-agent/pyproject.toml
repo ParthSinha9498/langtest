@@ -1,0 +1,21 @@
+[project]
+name = "chat-agent"
+version = "0.1.0"
+description = "Sample router-based LangGraph app used to build/test LangTest against"
+requires-python = ">=3.11"
+dependencies = [
+    "langtest",
+    "langgraph-checkpoint-sqlite>=2.0",
+    "langchain-groq>=0.2",
+    "python-dotenv>=1.0",
+]
+
+[tool.uv.sources]
+langtest = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/chat_agent"]

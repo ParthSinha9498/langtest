@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+node_modules/
+dist/
+build/
+*.db
+*.db-journal
+examples/chat-agent/fixtures/
+.env
+.DS_Store
+tsconfig.tsbuildinfo
+.claude/
